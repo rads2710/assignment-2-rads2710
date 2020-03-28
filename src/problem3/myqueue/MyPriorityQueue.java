@@ -42,12 +42,13 @@ public class MyPriorityQueue
         }
         else
         {
-            if(element.getRollNo()<=rear.getStudent().getRollNo())
+
+            if(element.getRollNo()>=rear.getStudent().getRollNo())
             {
                 rear.setNext(node);
                 rear=node;
             }
-            else if(element.getRollNo()>=front.getStudent().getRollNo())
+            else if(element.getRollNo()<=front.getStudent().getRollNo())
             {
                 node.setNext(front);
                 front=node;
@@ -58,7 +59,7 @@ public class MyPriorityQueue
                 Node temp = front;
                 while (temp.getNext() != null)
                 {
-                    if (temp.getStudent().getRollNo() < element.getRollNo())
+                    if (temp.getStudent().getRollNo() > element.getRollNo())
                     {
                         break;
                     }
