@@ -12,6 +12,12 @@ import problem1.node.TreeNode;
 public class MyBinarySearchTree
 {
     TreeNode root;
+    int count;
+    public MyBinarySearchTree()
+    {
+        this.root = null;
+        count=0;
+    }
 
     public TreeNode getRoot()
     {
@@ -50,6 +56,35 @@ public class MyBinarySearchTree
                 parent.setRight(node);
             }
         }
+    }
+
+    private void LeftNode(TreeNode root)
+    {
+        if(root == null)
+        {
+            return;
+        }
+        else {
+            if(root.getLeft()!=null)
+            {
+                System.out.println(root.getLeft().getData());
+            }
+            else {
+                count++;
+            }
+            LeftNode(root.getLeft());
+            LeftNode(root.getRight());
+        }
+    }
+
+    public void printLeftNode()
+    {
+        LeftNode(root);
+    }
+
+    public void countNotLeft()
+    {
+        System.out.println(count);
     }
 
     public void preOrderTraverse()
